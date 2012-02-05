@@ -10,6 +10,9 @@ group :development, :test do
   gem 'rspec-rails', '2.8.1'
 end
 
+group :production do
+  gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,10 +30,6 @@ gem 'jquery-rails'
 
 group :test do
   gem 'capybara', '1.1.2'
-end
-
-group :production do
-  gem 'pg'
 end
 
 
