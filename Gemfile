@@ -8,6 +8,7 @@ gem 'rails', '3.2.1'
 group :development, :test do
   gem 'sqlite3'
   gem 'rspec-rails', '2.8.1'
+  gem 'guard-rspec', '0.5.5'
 end
 
 group :production do
@@ -30,6 +31,12 @@ gem 'jquery-rails'
 
 group :test do
   gem 'capybara', '1.1.2'
+  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'guard-spork', '0.3.2'
+  gem 'spork', '~> 0.9.0.rc'
+  gem 'growl'
+  # gem 'growl', '1.2.2'
+  # gem 'growl_notify', '0.0.1'
 end
 
 
