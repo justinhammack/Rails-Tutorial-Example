@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
+gem 'bcrypt-ruby', '3.0.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -29,6 +30,10 @@ end
 
 gem 'jquery-rails'
 
+group :development do
+  gem 'annotate', '~> 2.4.1.beta'
+end
+
 group :test do
   gem 'capybara', '1.1.2'
   gem 'rb-fsevent', '0.4.3.1', :require => false
@@ -39,9 +44,6 @@ group :test do
   # gem 'growl_notify', '0.0.1'
 end
 
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
