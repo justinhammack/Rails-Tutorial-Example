@@ -31,15 +31,33 @@ describe "User Pages" do
 
     describe "with valid information" do
       before do
-        fill_in "Name",           with: "Example User"
-        fill_in "Email",          with: "user@example.com"
-        fill_in "Password",       with: "cookie"
+        fill_in "Name",               with: "Example User"
+        fill_in "Email",              with: "user@example.com"
+        fill_in "Password",           with: "cookie"
         fill_in "Confirm Password",   with: "cookie"
       end
 
       it "should create a user" do
         expect { click_button "Sign up" }.to change(User, :count).by(1)
       end
+
+      describe "after saving the user" do
+        before { click_button "Sign up" }
+        let(:user) { User.find_by_email('user@example.com') }
+
+        it {should have_selector('title', text: user.name) }
+        it {should have_selector('div.flash.alert.alert-success', 
+                                  text: 'Woohoo, new wine minion created!')}
+      end
+    end
+
+    describe "error messages" do
+      before { click_button "Sign up" }
+
+      let(:error) { 'errors found' }
+
+      it { should have_selector('title', text: 'Sign up') }
+      it { should have_content(error) }
     end
   end
 end

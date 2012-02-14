@@ -3,5 +3,5 @@
   <h1><%= @user.name %> <small>Profile</small></h1>
 </div>
 <p>
-  <%= gravatar_for @user %> He's the best guy ever! Contact him at: <%= @user.email %>
+  <%= gravatar_for @user, size: 64 %> He's the best guy ever! Contact him at: <%= @user.email %>
 </p>
