@@ -1,0 +1,7 @@
+<% provide :title, @user.name %>
+<div class="page-header">
+  <h1><%= @user.name %> <small>Profile</small></h1>
+</div>
+<p>
+  <%= gravatar_for @user %> He's the best guy ever! Contact him at: <%= @user.email %>
+</p>

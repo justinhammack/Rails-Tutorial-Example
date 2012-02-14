@@ -7,9 +7,7 @@ gem 'bcrypt-ruby', '3.0.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'sqlite3'
-  gem 'rspec-rails', '2.8.1'
-  gem 'guard-rspec', '0.5.5'
+  gem 'sqlite3'  
 end
 
 group :production do
@@ -28,28 +26,41 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
-
 group :development do
+  # creates commented notes on model attributes
   gem 'annotate', '~> 2.4.1.beta'
 end
 
+
 group :test do
+  # test specs, capybara for forms/acceptance, factory girl for modeling
+  gem 'rspec-rails', '2.8.1'
   gem 'capybara', '1.1.2'
-  gem 'rb-fsevent', '0.4.3.1', :require => false
+  gem 'factory_girl_rails', '1.4.0'
+
+  # loads guards for automated testing
+  gem 'guard-rspec', '0.5.5'                      
   gem 'guard-spork', '0.3.2'
+
+  # watches file changes
+  gem 'rb-fsevent', '0.4.3.1', :require => false  
+  
+  # faster pre-fork testing 
   gem 'spork', '~> 0.9.0.rc'
-  gem 'growl'
-  # gem 'growl', '1.2.2'
-  # gem 'growl_notify', '0.0.1'
+  
+  # testing notifications
+  gem 'growl'  
 end
 
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# jQuery for RoR
+gem 'jquery-rails'
 
 # Use unicorn as the web server
-# gem 'unicorn'
+gem 'unicorn'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
 
 # Deploy with Capistrano
 # gem 'capistrano'

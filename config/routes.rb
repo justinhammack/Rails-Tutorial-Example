@@ -1,5 +1,5 @@
 Tutorial::Application.routes.draw do
-  get "users/new"
+  resources :users
 
   # Users Controller
   match '/signup', to: 'users#new'
