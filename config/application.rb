@@ -61,5 +61,10 @@ module Tutorial
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Default test framework set to rspec
+    config.generators do |g|
+        g.test_framework :rspec
+    end
   end
 end
