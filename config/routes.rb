@@ -1,5 +1,11 @@
 Tutorial::Application.routes.draw do
+  # REST Routes
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
+
+  # Sessions Controller
+  match '/signin', to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy'
 
   # Users Controller
   match '/signup', to: 'users#new'

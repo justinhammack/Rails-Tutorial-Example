@@ -1,0 +1,14 @@
+<% provide :title, "Sign in" %>
+<div class="page-header">
+  <h1>Sign in <small>witty subtext goes here?</small></h1>
+</div>
+<p>
+  <%= form_for(:session, url: sessions_path) do |f| %>
+    <%= f.label :email %>
+    <%= f.text_field :email, {placeholder: 'Enter email...', class: 'span3'} %>
+    <%= f.label :password %>
+    <%= f.password_field :password, {class: 'span3'} %>
+    <p><%= button_tag "Sign in", {class: 'btn btn-primary'}%></p>
+  <% end %>  
+</p>
+<p>New user? <%= link_to "Sign up now!", signup_path %></p>

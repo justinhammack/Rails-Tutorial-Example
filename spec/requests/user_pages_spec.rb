@@ -48,6 +48,7 @@ describe "User Pages" do
         it {should have_selector('title', text: user.name) }
         it {should have_selector('div.flash.alert.alert-success', 
                                   text: 'Woohoo, new wine minion created!')}
+        it {should have_link('Sign out')}
       end
     end
 

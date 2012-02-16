@@ -8,7 +8,12 @@
         <li><%= link_to "Pricing", "#" %></li>
       </ul>
       <p class="navbar-text pull-right">
-        <%= link_to "Login", "#" %>
+        <% if signed_in? %>
+          <%= link_to "Profile", current_user %> | 
+          <%= link_to "Sign out", signout_path, method: :delete %>
+        <% else %>
+          Already a member? <%= link_to "Sign in", signin_path %>
+        <% end %>
       </p>
     </div>
   </div>
