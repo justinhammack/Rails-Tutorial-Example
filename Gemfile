@@ -2,12 +2,16 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.1'
 gem 'bcrypt-ruby', '3.0.1'
+gem 'will_paginate', '3.0.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development, :test do
-  gem 'sqlite3'  
+  gem 'sqlite3'
+
+  # allows us to make sample users
+  gem 'faker', '1.0.1'
 end
 
 group :production do

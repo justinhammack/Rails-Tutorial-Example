@@ -9,7 +9,9 @@
       </ul>
       <p class="navbar-text pull-right">
         <% if signed_in? %>
+          <%= link_to "Users", users_path %> | 
           <%= link_to "Profile", current_user %> | 
+          <%= link_to "Settings", edit_user_path(current_user) %> | 
           <%= link_to "Sign out", signout_path, method: :delete %>
         <% else %>
           Already a member? <%= link_to "Sign in", signin_path %>

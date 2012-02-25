@@ -12,6 +12,8 @@
 #
 
 class User < ActiveRecord::Base
+  
+  # explicitly defining accessible attributes is crucial for good site security
   attr_accessible :name, :email, :password, :password_confirmation
   has_secure_password
   before_save :create_remember_token
