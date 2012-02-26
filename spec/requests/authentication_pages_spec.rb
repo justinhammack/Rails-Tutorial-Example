@@ -54,7 +54,11 @@ describe "Authentication" do
       let(:user) {FactoryGirl.create(:user)}
 
       describe "in the Users controller" do
-        
+        before {visit root_path}
+
+        it {should_not have_link('Profile', href: user_path(user))}
+        it {should_not have_link('Settings', href: edit_user_path(user))}
+
         describe "visiting the edit page" do
           before {visit edit_user_path(user)}
           it {should have_selector('title', text: 'Sign in')}
@@ -80,8 +84,22 @@ describe "Authentication" do
         end
 
         describe "after signing in" do
+          
           it "should render the desired protected page" do
             page.should have_selector('title', text: 'Edit user')
+          end
+
+          describe "when signing in again" do
+            before do
+              visit signin_path
+              fill_in "Email", with: user.email
+              fill_in "Password", with: user.password
+              click_button "Sign in"
+            end
+
+            it "should render the default (profile) page" do
+              page.should have_selector('title', text: user.name)
+            end
           end
         end
       end      
@@ -112,6 +130,16 @@ describe "Authentication" do
       describe "submitting a DELETE request to the Users#destroy action" do
         before {delete user_path(user)}
         specify {response.should redirect_to(root_path)}
+      end
+
+      describe "submitting a CREATE request to the User#new action" do
+        before {post users_path(user)}
+        specify {response.should redirect_to(root_path)}
+      end
+
+      describe "attempting to visit the signup page" do
+        before {visit signup_path}
+        it {should have_selector('title', text: 'Home')}
       end
     end
   end

@@ -4,15 +4,7 @@
 </div>
 <p>
   <%= form_for(@user) do |f| %>
-    <%= render 'shared/error_messages' %>
-    <%= f.label :name %>
-    <%= f.text_field :name, {placeholder: 'Enter username...', class: 'span3'}%>
-    <%= f.label :email %>
-    <%= f.text_field :email, {placeholder: 'Enter email...', class: 'span3'} %>
-    <%= f.label :password %>
-    <%= f.password_field :password, {class: 'span3'} %>
-    <%= f.label :password_confirmation, "Confirm Password" %>
-    <%= f.password_field :password_confirmation, {class: 'span3'} %>    
+    <%= render 'fields', f: f %>
     <p><%= button_tag "Sign up", {class: 'btn btn-primary'}%></p>
   <% end %>
   <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>

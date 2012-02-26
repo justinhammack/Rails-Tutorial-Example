@@ -1,0 +1,9 @@
+<%= render 'shared/error_messages' %>
+<%= f.label :name %>
+<%= f.text_field :name, {placeholder: 'Enter username...', class: 'span3'}%>
+<%= f.label :email %>
+<%= f.text_field :email, {placeholder: 'Enter email...', class: 'span3'} %>
+<%= f.label :password %>
+<%= f.password_field :password, {class: 'span3'} %>
+<%= f.label :password_confirmation, "Confirm Password" %>
+<%= f.password_field :password_confirmation, {class: 'span3'} %>
