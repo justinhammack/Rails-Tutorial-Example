@@ -2,6 +2,24 @@
 <div class="page-header">
   <h1><%= @user.name %> <small>Profile</small></h1>
 </div>
-<p>
-  <%= gravatar_for @user, size: 64 %> He's the best guy ever! Contact him at: <%= @user.email %>
-</p>
+<div class="row">
+  <div class="span2">
+    <%= gravatar_for @user, size: 128, classes: 'thumbnail pull-right' %>
+  </div>
+  <div class="span2">
+    <p>
+      <strong><%= @user.name %></strong><br/>
+      <%= @user.email %><br/>
+      <%= @user.microposts.count %> updates
+    </p>
+  </div>
+  <div class="span8">
+    <h4>Recent Updates</h4>
+    <% if @user.microposts.any? %>        
+      <table class="table table-striped">
+        <%= render @microposts %>
+      </table>
+      <p><%= page_navigation_links @microposts %></p>
+    <% end %>    
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<br>
+<div class="row">
+  <div class="span12">
+    <% if @feed_items.any? %>        
+      <table class="table table-striped">
+        <%= render partial: 'shared/feed_item', collection: @feed_items %>
+      </table>
+      <p><%= page_navigation_links @feed_items %></p>
+    <% end %>
+  </div>
+</div>

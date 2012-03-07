@@ -1,0 +1,8 @@
+<div class="span2">
+  <%= gravatar_for current_user, size: 128, classes: 'thumbnail pull-right' %>
+</div>
+<div class="span2">
+  <a href="<%= user_path(current_user) %>">
+  <%= current_user.name %></a><br/>
+  <%= pluralize(current_user.microposts.count, "micrposts") %>
+</div>

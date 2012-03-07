@@ -1,0 +1,5 @@
+<%= form_for @micropost, html: {class: "form-inline"} do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= f.text_field :content, {placeholder: 'Enter update...', class: 'span3'}%>
+  <%= button_tag "Update", {class: 'btn btn-primary'}%>
+<% end %>

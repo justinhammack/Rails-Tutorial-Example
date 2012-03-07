@@ -2,6 +2,7 @@ Tutorial::Application.routes.draw do
   # REST Routes
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   # Sessions Controller
   match '/signin', to: 'sessions#new'
