@@ -12,6 +12,8 @@
       <%= @user.email %><br/>
       <%= @user.microposts.count %> updates
     </p>
+    <p><%= render 'shared/stats' %></p>
+    <p><%= render 'follow_form' if signed_in? %></p>
   </div>
   <div class="span8">
     <h4>Recent Updates</h4>

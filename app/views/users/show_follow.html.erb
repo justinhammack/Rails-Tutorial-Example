@@ -1,0 +1,28 @@
+<% provide :title, @title %>
+<div class="page-header">
+  <h1><%= @user.name %> <small><%= @title %></small></h1>
+</div>
+<div class="row">
+  <div class="span2">
+    <%= gravatar_for @user, size: 128, classes: 'thumbnail pull-right' %>    
+  </div>
+  <div class="span2">
+    <p>
+      <strong><%= @user.name %></strong><br/>
+      <%= @user.email %><br/>
+      <%= @user.microposts.count %> updates
+    </p>
+    <p><%= render 'shared/stats' %></p>
+    <p><%= render 'follow_form' if signed_in? %></p>
+  </div>
+  <div class="span8">
+    <h3><%= @title %></h3>
+    <br/>
+    <% if @users.any? %>
+      <ul class="users unstyled">
+        <%= render @users %>
+      </ul>
+      <%= page_navigation_links @users %>
+    <% end %>
+  </div>
+</div>
